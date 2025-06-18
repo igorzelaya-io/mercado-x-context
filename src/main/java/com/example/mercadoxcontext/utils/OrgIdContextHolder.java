@@ -1,19 +1,25 @@
 package com.example.mercadoxcontext.utils;
 
+import java.util.Optional;
+import java.util.UUID;
+
 public final class OrgIdContextHolder {
 
-    private static final ThreadLocal<String> context = new ThreadLocal<>();
+    private static final ThreadLocal<UUID> context = new ThreadLocal<>();
 
     private OrgIdContextHolder() {
-        // Prevent instantiation
     }
 
-    public static void setTenantId(String tenantId) {
+    public static void setTenantId(UUID tenantId) {
         context.set(tenantId);
     }
 
-    public static String getTenantId() {
+    public static UUID getTenantId() {
         return context.get();
+    }
+
+    public static boolean hasTenantId() {
+        return Optional.ofNullable(context.get()).isPresent();
     }
 
     public static void clear() {
