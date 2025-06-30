@@ -1,20 +1,19 @@
-package com.example.mercadoxcontext.utils;
+package hn.shadowcore.mercadoxcontext.utils;
 
 import java.util.Optional;
-import java.util.UUID;
 
 public final class OrgIdContextHolder {
 
-    private static final ThreadLocal<UUID> context = new ThreadLocal<>();
+    private static final ThreadLocal<String> context = new ThreadLocal<>();
 
     private OrgIdContextHolder() {
     }
 
-    public static void setTenantId(UUID tenantId) {
+    public static void setTenantId(String tenantId) {
         context.set(tenantId);
     }
 
-    public static UUID getTenantId() {
+    public static String getTenantId() {
         return context.get();
     }
 
