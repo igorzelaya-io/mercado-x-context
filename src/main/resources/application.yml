@@ -1,1 +1,23 @@
+server:
+  port: 8084
+spring:
+  cache:
+    type: redis
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mercado_x
+    username: postgres
+    password:
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
 
+security:
+  jwt:
+    secret: "R3vVjK8kL2sP5xMnTbQ1VuZc8AyR3nFwqLpBh9sZ2JY="
+    expiration: 3600000
