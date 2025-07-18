@@ -24,6 +24,9 @@ public class RedisTtlConfig {
         cacheConfigs.put("inactiveOrgs", RedisCacheConfiguration.defaultCacheConfig()
                 .entryTtl(Duration.ofHours(2)));
 
+        cacheConfigs.put("reviewOrders", RedisCacheConfiguration.defaultCacheConfig()
+                .entryTtl(Duration.ofHours(1)));
+
         return RedisCacheManager.builder(connectionFactory)
                 .withInitialCacheConfigurations(cacheConfigs)
                 .build();
