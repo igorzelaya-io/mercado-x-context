@@ -32,7 +32,7 @@ public class JwtUtil {
         Date expiryDate = new Date(now.getTime() + jwtExpirationMs);
 
         return Jwts.builder()
-                .subject(user.getUsername())
+                .subject(user.getEmail())
                 .claim("orgId", user.getOrganization().getId().toString())
                 .issuedAt(now)
                 .expiration(expiryDate)
