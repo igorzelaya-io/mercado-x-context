@@ -16,7 +16,19 @@ public class KafkaProducerRecordFactory {
         }
         String tenantId = OrgIdContextHolder.getTenantId();
         if(tenantId != null) {
-            producerRecord.headers().add("x-org-id", OrgIdContextHolder.getTenantId().getBytes(StandardCharsets.UTF_8));
+            producerRecord.headers().add("x-org-id", OrgIdContextHolder.getTenantId()
+                    .getBytes(StandardCharsets.UTF_8));
+        }
+        return producerRecord;
+    }
+
+    public static <T> ProducerRecord<String, T> buildWithoutOrgIdHeader(String topic, String key, T eventPayload) {
+        ProducerRecord<String, T> producerRecord;
+        if(key != null) {
+            producerRecord = new ProducerRecord<>(topic, key, eventPayload);
+        }
+        else{
+            producerRecord = new ProducerRecord<>(topic, eventPayload);
         }
         return producerRecord;
     }

@@ -7,6 +7,7 @@ import hn.shadowcore.mercadoxlibrary.entity.model.auth.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
 import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,6 +27,7 @@ class JwtUtilTest {
                 .firstName("Example")
                 .email("i@b.com")
                 .organization(org)
+                .userRoles(new HashSet<>())
                 .build();
 
         final String token = jwtUtil.generateToken(user);
