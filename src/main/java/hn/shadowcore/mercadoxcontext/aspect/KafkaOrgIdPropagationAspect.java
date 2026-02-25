@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class KafkaOrgIdPropagationAspect {
 
-    @Around("@annotation(hn.shadowcore.mercadoxemail.util.KafkaOrgIdPropagated)")
+    @Around("@annotation(hn.shadowcore.mercadoxcontext.utils.annotations.KafkaOrgIdPropagated)")
     public Object injectOrgIdFromKafkaHeader(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
             Object[] args = joinPoint.getArgs();

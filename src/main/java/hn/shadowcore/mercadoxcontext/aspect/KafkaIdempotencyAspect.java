@@ -19,7 +19,7 @@ public class KafkaIdempotencyAspect {
 
     private final RedisIdempotencyChecker idempotencyChecker;
 
-    @Around("@annotation(hn.shadowcore.mercadoxemail.util.KafkaIdempotent)")
+    @Around("@annotation(hn.shadowcore.mercadoxcontext.utils.annotations.KafkaIdempotent)")
     public Object checkIdempotency(ProceedingJoinPoint pjp) throws Throwable {
         EventDto<?> dto = null;
 
