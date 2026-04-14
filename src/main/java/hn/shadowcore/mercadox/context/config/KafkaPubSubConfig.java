@@ -1,4 +1,4 @@
-package hn.shadowcore.mercadoxcontext.config;
+package hn.shadowcore.mercadox.context.config;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;

@@ -1,7 +1,7 @@
-package hn.shadowcore.mercadoxcontext.aspect;
+package hn.shadowcore.mercadox.context.aspect;
 
 
-import hn.shadowcore.mercadoxcontext.utils.OrgIdContextHolder;
+import hn.shadowcore.mercadox.context.utils.OrgIdContextHolder;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.header.Header;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -15,7 +15,7 @@ import java.nio.charset.StandardCharsets;
 @Component
 public class KafkaOrgIdPropagationAspect {
 
-    @Around("@annotation(hn.shadowcore.mercadoxcontext.utils.annotations.KafkaOrgIdPropagated)")
+    @Around("@annotation(hn.shadowcore.mercadox.context.utils.annotations.KafkaOrgIdPropagated)")
     public Object injectOrgIdFromKafkaHeader(ProceedingJoinPoint joinPoint) throws Throwable {
         try {
             Object[] args = joinPoint.getArgs();

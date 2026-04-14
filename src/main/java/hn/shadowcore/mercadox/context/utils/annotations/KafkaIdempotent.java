@@ -1,4 +1,4 @@
-package hn.shadowcore.mercadoxcontext.utils.annotations;
+package hn.shadowcore.mercadox.context.utils.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,5 +7,4 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface KafkaOrgIdPropagated {
-}
+public @interface KafkaIdempotent { }

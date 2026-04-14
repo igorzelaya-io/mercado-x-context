@@ -1,7 +1,7 @@
-package hn.shadowcore.mercadoxcontext.config;
+package hn.shadowcore.mercadox.context.config;
 
 
-import hn.shadowcore.mercadoxcontext.utils.JwtUtil;
+import hn.shadowcore.mercadox.context.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

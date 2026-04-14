@@ -1,9 +1,9 @@
 package hn.mercadoxcontext.utils;
 
 
-import hn.shadowcore.mercadoxcontext.utils.JwtUtil;
-import hn.shadowcore.mercadoxlibrary.entity.model.auth.Organization;
-import hn.shadowcore.mercadoxlibrary.entity.model.auth.User;
+import hn.shadowcore.mercadox.context.utils.JwtUtil;
+import hn.shadowcore.mercadox.library.entity.model.auth.Organization;
+import hn.shadowcore.mercadox.library.entity.model.auth.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

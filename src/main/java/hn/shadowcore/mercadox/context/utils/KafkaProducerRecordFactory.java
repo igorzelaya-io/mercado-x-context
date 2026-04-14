@@ -1,4 +1,4 @@
-package hn.shadowcore.mercadoxcontext.utils;
+package hn.shadowcore.mercadox.context.utils;
 
 import org.apache.kafka.clients.producer.ProducerRecord;
 

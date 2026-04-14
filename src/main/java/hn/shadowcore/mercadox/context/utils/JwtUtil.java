@@ -1,7 +1,7 @@
-package hn.shadowcore.mercadoxcontext.utils;
+package hn.shadowcore.mercadox.context.utils;
 
-import hn.shadowcore.mercadoxlibrary.entity.model.auth.Role;
-import hn.shadowcore.mercadoxlibrary.entity.model.auth.User;
+import hn.shadowcore.mercadox.library.entity.model.auth.Role;
+import hn.shadowcore.mercadox.library.entity.model.auth.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.JwtParser;
