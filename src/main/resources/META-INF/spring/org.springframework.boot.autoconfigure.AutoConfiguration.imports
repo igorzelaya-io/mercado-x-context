@@ -1,1 +1,1 @@
-hn.shadowcore.mercadox.context.config.MercadoXJwtAutoConfiguration
+hn.shadowcore.mercadox.context.security.MercadoXJwtAutoConfiguration
