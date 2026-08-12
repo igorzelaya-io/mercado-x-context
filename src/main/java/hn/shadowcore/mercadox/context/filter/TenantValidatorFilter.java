@@ -1,6 +1,6 @@
 package hn.shadowcore.mercadox.context.filter;
 
-import hn.shadowcore.mercadox.context.utils.JwtUtil;
+import hn.shadowcore.mercadox.context.security.JwtVerifier;
 import hn.shadowcore.mercadox.context.utils.OrgIdContextHolder;
 import hn.shadowcore.mercadox.context.validator.AnonymousTenantValidator;
 import jakarta.servlet.FilterChain;
@@ -20,7 +20,7 @@ import java.io.IOException;
 @ConditionalOnBean(AnonymousTenantValidator.class)
 public class TenantValidatorFilter extends OncePerRequestFilter {
 
-    private final JwtUtil jwtUtil;
+    private final JwtVerifier jwtUtil;
 
     private final AnonymousTenantValidator tenantValidator;
 
@@ -30,7 +30,7 @@ public class TenantValidatorFilter extends OncePerRequestFilter {
             String orgId = resolveTenant(request);
 
             if(StringUtils.hasText(orgId)) {
-                log.info(String.format("OrgID Context Holder set for value: %s", orgId));
+                log.info("OrgID Context Holder set for value: {}", orgId);
                 tenantValidator.validate(orgId);
                 OrgIdContextHolder.setTenantId(orgId);
             }
@@ -51,7 +51,7 @@ public class TenantValidatorFilter extends OncePerRequestFilter {
             String jwt = authHeader.substring(7);
 
             if (jwtUtil.validateToken(jwt)) {
-                return jwtUtil.getOrgIdFromToken(jwt);
+                return jwtUtil.verify(jwt).orgId();
             }
         }
 

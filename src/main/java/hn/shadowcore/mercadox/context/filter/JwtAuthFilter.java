@@ -1,6 +1,7 @@
 package hn.shadowcore.mercadox.context.filter;
 
-import hn.shadowcore.mercadox.context.utils.JwtUtil;
+import hn.shadowcore.mercadox.context.security.JwtVerifier;
+import hn.shadowcore.mercadox.context.security.VerifiedJwt;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
 
-    private final JwtUtil jwtUtil;
+    private final JwtVerifier jwtUtil;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -35,8 +36,9 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
             if (jwtUtil.validateToken(jwt)) {
 
-                String email = jwtUtil.getEmailFromToken(jwt);
-                List<String> roles = jwtUtil.getRolesFromToken(jwt);
+                VerifiedJwt verified = jwtUtil.verify(jwt);
+                String email = verified.email();
+                List<String> roles = verified.roles();
 
                 List<SimpleGrantedAuthority> authorities = roles.stream()
                         .map(SimpleGrantedAuthority::new)
