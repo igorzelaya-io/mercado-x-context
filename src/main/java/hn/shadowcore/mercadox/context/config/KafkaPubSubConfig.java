@@ -30,10 +30,15 @@ public class KafkaPubSubConfig {
 
     @Bean
     public ProducerFactory<String, Object> producerFactory() {
+        JsonSerializer<Object> valueSerializer = new JsonSerializer<>();
+        valueSerializer.setAddTypeInfo(true);
+
         Map<String, Object> config = new HashMap<>(kafkaProperties.buildProducerProperties(null));
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        return new DefaultKafkaProducerFactory<>(config);
+        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, true);
+
+        return new DefaultKafkaProducerFactory<>(config, new StringSerializer(), valueSerializer);
     }
 
     @Bean
@@ -43,11 +48,17 @@ public class KafkaPubSubConfig {
 
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
+        JsonDeserializer<Object> valueDeserializer = new JsonDeserializer<>();
+        valueDeserializer.addTrustedPackages("hn.shadowcore.mercadox.*");
+        valueDeserializer.setUseTypeHeaders(true);
+
         Map<String, Object> props = new HashMap<>(kafkaProperties.buildConsumerProperties(null));
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "*");
-        return new DefaultKafkaConsumerFactory<>(props);
+        props.put(JsonDeserializer.TRUSTED_PACKAGES, "hn.shadowcore.mercadox.*");
+        props.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, "true");
+
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), valueDeserializer);
     }
 
     @Bean
