@@ -33,8 +33,9 @@ public class TenantValidatorFilter extends OncePerRequestFilter {
                 log.info("OrgID Context Holder set for value: {}", orgId);
                 tenantValidator.validate(orgId);
                 OrgIdContextHolder.setTenantId(orgId);
+            } else {
+                log.warn("Failed to add OrgID Context Holder value.");
             }
-            log.warn("Failed to add OrgID Context Holder value.");
             filterChain.doFilter(request, response);
         }
 
