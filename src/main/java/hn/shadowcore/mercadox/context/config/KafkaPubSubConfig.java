@@ -1,10 +1,15 @@
 package hn.shadowcore.mercadox.context.config;
 
+import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig;
+import io.confluent.kafka.serializers.KafkaAvroDeserializer;
+import io.confluent.kafka.serializers.KafkaAvroDeserializerConfig;
+import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -15,8 +20,6 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
-import org.springframework.kafka.support.serializer.JsonSerializer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,17 +31,16 @@ public class KafkaPubSubConfig {
 
     private final KafkaProperties kafkaProperties;
 
+    @Value("${kafka.schema-registry-url:http://localhost:8085}")
+    private String schemaRegistryUrl;
+
     @Bean
     public ProducerFactory<String, Object> producerFactory() {
-        JsonSerializer<Object> valueSerializer = new JsonSerializer<>();
-        valueSerializer.setAddTypeInfo(true);
-
         Map<String, Object> config = new HashMap<>(kafkaProperties.buildProducerProperties(null));
         config.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
-        config.put(JsonSerializer.ADD_TYPE_INFO_HEADERS, true);
-
-        return new DefaultKafkaProducerFactory<>(config, new StringSerializer(), valueSerializer);
+        config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaAvroSerializer.class);
+        config.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
+        return new DefaultKafkaProducerFactory<>(config);
     }
 
     @Bean
@@ -48,17 +50,13 @@ public class KafkaPubSubConfig {
 
     @Bean
     public ConsumerFactory<String, Object> consumerFactory() {
-        JsonDeserializer<Object> valueDeserializer = new JsonDeserializer<>();
-        valueDeserializer.addTrustedPackages("hn.shadowcore.mercadox.*");
-        valueDeserializer.setUseTypeHeaders(true);
-
         Map<String, Object> props = new HashMap<>(kafkaProperties.buildConsumerProperties(null));
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(JsonDeserializer.TRUSTED_PACKAGES, "hn.shadowcore.mercadox.*");
-        props.put(JsonDeserializer.USE_TYPE_INFO_HEADERS, "true");
-
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), valueDeserializer);
+        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, KafkaAvroDeserializer.class);
+        props.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, schemaRegistryUrl);
+        // Deserialize into specific Avro-generated classes rather than GenericRecord
+        props.put(KafkaAvroDeserializerConfig.SPECIFIC_AVRO_READER_CONFIG, true);
+        return new DefaultKafkaConsumerFactory<>(props);
     }
 
     @Bean
@@ -69,3 +67,4 @@ public class KafkaPubSubConfig {
         return factory;
     }
 }
+
