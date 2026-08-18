@@ -1,5 +1,6 @@
 package hn.shadowcore.mercadox.context.aspect;
 
+import hn.shadowcore.mercadox.context.exception.InvalidEventIdException;
 import hn.shadowcore.mercadox.library.entity.model.enums.kafka.event.DomainEvent;
 import hn.shadowcore.mercadox.library.redis.util.RedisIdempotencyChecker;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +10,6 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
-
-import java.util.Objects;
 
 @Slf4j
 @Aspect
@@ -22,35 +21,43 @@ public class KafkaIdempotencyAspect {
 
     @Around("@annotation(hn.shadowcore.mercadox.context.utils.annotations.KafkaIdempotent)")
     public Object checkIdempotency(ProceedingJoinPoint pjp) throws Throwable {
-        DomainEvent dto = null;
+        String eventId = null;
 
-        Object[] args = pjp.getArgs();
-
-        for (Object arg : args) {
-            if (arg instanceof ConsumerRecord<?, ?> consumerRecord) {
-                Object value = consumerRecord.value();
-                if (value instanceof DomainEvent typedDto) {
-                    dto = typedDto;
-                    break;
-                }
-
-            } else if (arg instanceof DomainEvent directDto) {
-                dto = directDto;
-                break;
-            }
+        for (Object arg : pjp.getArgs()) {
+            eventId = extractEventId(arg instanceof ConsumerRecord<?, ?> r ? r.value() : arg);
+            if (eventId != null) break;
         }
-        if (!Objects.nonNull(dto) || !Objects.nonNull(dto.getEventId())) {
-            log.info("Unable to check duplicates on redis idempotency checker due to null values being passed.");
-            return null;
+
+        if (eventId == null) {
+            throw new InvalidEventIdException(
+                    "Rejecting event with missing eventId on topic — routed to DLT for inspection.");
         }
-        if(idempotencyChecker.isDuplicate(dto.getEventId())) {
-            log.info("Tried to run duplicate event with ID: {}", dto.getEventId());
+        if (!idempotencyChecker.claimProcessing(eventId)) {
+            log.info("Dropped duplicate event with ID: {}", eventId);
             return null;
         }
 
-        Object result = pjp.proceed();
-        idempotencyChecker.markProcessed(dto.getEventId());
-        return result;
+        return pjp.proceed();
     }
 
+    private String extractEventId(Object value) {
+        if (value instanceof DomainEvent domainEvent) {
+            return domainEvent.getEventId();
+        }
+        if (value != null) {
+            // Use reflection to call getEventId() directly on the generated Avro class.
+            // The schema-field position lookup (record.get(field.pos())) is fragile when
+            // the runtime schema from the Schema Registry has different field ordering
+            // than the compile-time schema — direct method invocation has no such ambiguity.
+            try {
+                Object result = value.getClass().getMethod("getEventId").invoke(value);
+                return result instanceof String s ? s : null;
+            } catch (NoSuchMethodException ignored) {
+                // Not an event type that carries eventId
+            } catch (Exception e) {
+                log.debug("Could not extract eventId from {}", value.getClass().getSimpleName());
+            }
+        }
+        return null;
+    }
 }
