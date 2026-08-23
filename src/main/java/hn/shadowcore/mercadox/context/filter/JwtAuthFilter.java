@@ -20,6 +20,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
 
+    public static final String VERIFIED_JWT_ATTRIBUTE = "hn.shadowcore.mercadox.context.VERIFIED_JWT";
+
     private final JwtVerifier jwtUtil;
 
     @Override
@@ -37,6 +39,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             if (jwtUtil.validateToken(jwt)) {
 
                 VerifiedJwt verified = jwtUtil.verify(jwt);
+                request.setAttribute(VERIFIED_JWT_ATTRIBUTE, verified);
                 String email = verified.email();
                 List<String> roles = verified.roles();
 

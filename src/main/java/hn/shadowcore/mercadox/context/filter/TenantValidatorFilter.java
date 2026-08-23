@@ -1,6 +1,6 @@
 package hn.shadowcore.mercadox.context.filter;
 
-import hn.shadowcore.mercadox.context.security.JwtVerifier;
+import hn.shadowcore.mercadox.context.security.VerifiedJwt;
 import hn.shadowcore.mercadox.context.utils.OrgIdContextHolder;
 import hn.shadowcore.mercadox.context.validator.AnonymousTenantValidator;
 import jakarta.servlet.FilterChain;
@@ -15,12 +15,13 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
+// Must be registered after JwtAuthFilter in the security chain: it reads the
+// already-verified JWT from the request attribute JwtAuthFilter sets, rather
+// than re-parsing/re-verifying the token itself.
 @Slf4j
 @RequiredArgsConstructor
 @ConditionalOnBean(AnonymousTenantValidator.class)
 public class TenantValidatorFilter extends OncePerRequestFilter {
-
-    private final JwtVerifier jwtUtil;
 
     private final AnonymousTenantValidator tenantValidator;
 
@@ -46,14 +47,10 @@ public class TenantValidatorFilter extends OncePerRequestFilter {
 
     private String resolveTenant(HttpServletRequest request) {
 
-        String authHeader = request.getHeader("Authorization");
+        Object verifiedJwtAttribute = request.getAttribute(JwtAuthFilter.VERIFIED_JWT_ATTRIBUTE);
 
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            String jwt = authHeader.substring(7);
-
-            if (jwtUtil.validateToken(jwt)) {
-                return jwtUtil.verify(jwt).orgId();
-            }
+        if (verifiedJwtAttribute instanceof VerifiedJwt verified) {
+            return verified.orgId();
         }
 
         String uri = request.getRequestURI();

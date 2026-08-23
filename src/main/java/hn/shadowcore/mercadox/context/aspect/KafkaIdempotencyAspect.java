@@ -1,7 +1,7 @@
 package hn.shadowcore.mercadox.context.aspect;
 
 import hn.shadowcore.mercadox.context.exception.InvalidEventIdException;
-import hn.shadowcore.mercadox.library.entity.model.enums.kafka.event.DomainEvent;
+import hn.shadowcore.mercadox.library.entity.kafka.event.DomainEvent;
 import hn.shadowcore.mercadox.library.redis.util.RedisIdempotencyChecker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

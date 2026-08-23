@@ -1,0 +1,127 @@
+{
+  "mvnw": {
+    "mtime": 1749589039.7423692,
+    "ast_hash": "2fe09837c0b4dfabab4c4b206bcd0850",
+    "semantic_hash": "2fe09837c0b4dfabab4c4b206bcd0850"
+  },
+  "pom.xml": {
+    "mtime": 1786835943.8305094,
+    "ast_hash": "9d7735e8901b89ee1239778519017f3c",
+    "semantic_hash": "9d7735e8901b89ee1239778519017f3c"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/aspect/IdempotencyAspect.java": {
+    "mtime": 1786661317.767329,
+    "ast_hash": "7946552f1e1d65475fde39341761b400",
+    "semantic_hash": "7946552f1e1d65475fde39341761b400"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/aspect/KafkaIdempotencyAspect.java": {
+    "mtime": 1787341041.8362536,
+    "ast_hash": "4ef5bebe8fad49642274ff6334325979",
+    "semantic_hash": "4ef5bebe8fad49642274ff6334325979"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/aspect/KafkaOrgIdPropagationAspect.java": {
+    "mtime": 1783800295.2578366,
+    "ast_hash": "c2397d8926e2081214ef98a5dbfa5509",
+    "semantic_hash": "c2397d8926e2081214ef98a5dbfa5509"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/config/JwtConfig.java": {
+    "mtime": 1786648345.9611478,
+    "ast_hash": "13f810893138ca9504739db8c6875b64",
+    "semantic_hash": "13f810893138ca9504739db8c6875b64"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/config/KafkaPubSubConfig.java": {
+    "mtime": 1786991672.0982757,
+    "ast_hash": "1567e498d4939c11bbc6494635b68004",
+    "semantic_hash": "1567e498d4939c11bbc6494635b68004"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/config/WebClientConfig.java": {
+    "mtime": 1783800295.2595956,
+    "ast_hash": "45ca9ec6438db642cbd4e711d4803689",
+    "semantic_hash": "45ca9ec6438db642cbd4e711d4803689"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/exception/InvalidEventIdException.java": {
+    "mtime": 1786985017.4478126,
+    "ast_hash": "07784bb2a9aef09d02c557c3ae43416c",
+    "semantic_hash": "07784bb2a9aef09d02c557c3ae43416c"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/filter/JwtAuthFilter.java": {
+    "mtime": 1787037780.5503063,
+    "ast_hash": "5f33bfcc09fa89a64aa1a1c9bbf9fa0c",
+    "semantic_hash": "5f33bfcc09fa89a64aa1a1c9bbf9fa0c"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/filter/TenantValidatorFilter.java": {
+    "mtime": 1787037800.3313692,
+    "ast_hash": "c734b2e84f72cae7c5f5086a051958f2",
+    "semantic_hash": "c734b2e84f72cae7c5f5086a051958f2"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/kafka/KafkaErrorHandlerCustomizer.java": {
+    "mtime": 1786988034.6255467,
+    "ast_hash": "529fdb837846a047d7f624cc0ff7144d",
+    "semantic_hash": "529fdb837846a047d7f624cc0ff7144d"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/listener/DltEventListener.java": {
+    "mtime": 1786986394.8001022,
+    "ast_hash": "8345d8f9b11caed839acc0891831e06d",
+    "semantic_hash": "8345d8f9b11caed839acc0891831e06d"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/security/JwtVerificationProperties.java": {
+    "mtime": 1785821436.7482808,
+    "ast_hash": "6bf71575ae83c53e118e4fcf8c13da9e",
+    "semantic_hash": "6bf71575ae83c53e118e4fcf8c13da9e"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/security/JwtVerifier.java": {
+    "mtime": 1785821881.121836,
+    "ast_hash": "73fd08befb7f9e883c7b0f2e4ae419c8",
+    "semantic_hash": "73fd08befb7f9e883c7b0f2e4ae419c8"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/security/MercadoXJwtAutoConfiguration.java": {
+    "mtime": 1786568006.2486157,
+    "ast_hash": "a9785e8d9f110f6ae746a14f20f1c456",
+    "semantic_hash": "a9785e8d9f110f6ae746a14f20f1c456"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/security/PublicKeyUtils.java": {
+    "mtime": 1785821630.5982494,
+    "ast_hash": "6b7c45b22915ebc826347b155a4cdb2b",
+    "semantic_hash": "6b7c45b22915ebc826347b155a4cdb2b"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/security/VerifiedJwt.java": {
+    "mtime": 1785732577.2003198,
+    "ast_hash": "a6f6dc932f488b9542c11364389037bf",
+    "semantic_hash": "a6f6dc932f488b9542c11364389037bf"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/utils/KafkaProducerRecordFactory.java": {
+    "mtime": 1783800295.2611601,
+    "ast_hash": "33180a66ab9c9b519e2ade96b1e069d7",
+    "semantic_hash": "33180a66ab9c9b519e2ade96b1e069d7"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/utils/OrgIdContextHolder.java": {
+    "mtime": 1783800295.2616875,
+    "ast_hash": "f8ea094496fc94e1e044f3d35d9b8cc8",
+    "semantic_hash": "f8ea094496fc94e1e044f3d35d9b8cc8"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/utils/annotations/IdempotentOperation.java": {
+    "mtime": 1786661306.1056423,
+    "ast_hash": "60ac028253c1fce4249850f1863a6b77",
+    "semantic_hash": "60ac028253c1fce4249850f1863a6b77"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/utils/annotations/KafkaIdempotent.java": {
+    "mtime": 1783800295.2619407,
+    "ast_hash": "eac522355ab5ca5932e2ee3c6309d549",
+    "semantic_hash": "eac522355ab5ca5932e2ee3c6309d549"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/utils/annotations/KafkaOrgIdPropagated.java": {
+    "mtime": 1783800295.262182,
+    "ast_hash": "4d7acbfba1959fc2b7817045c0a0bfce",
+    "semantic_hash": "4d7acbfba1959fc2b7817045c0a0bfce"
+  },
+  "src/main/java/hn/shadowcore/mercadox/context/validator/AnonymousTenantValidator.java": {
+    "mtime": 1783800295.262876,
+    "ast_hash": "0e7997b38730adf62381d204bbce4191",
+    "semantic_hash": "0e7997b38730adf62381d204bbce4191"
+  },
+  "src/test/java/hn/mercadoxcontext/utils/JwtVerifierTest.java": {
+    "mtime": 1785822570.9832704,
+    "ast_hash": "4f82ee580ebaf91113cfc130c9570b9d",
+    "semantic_hash": "4f82ee580ebaf91113cfc130c9570b9d"
+  }
+}
