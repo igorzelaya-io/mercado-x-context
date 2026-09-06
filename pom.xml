@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>mercado-x-context</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>mercado-x-context</name>
     <description>mercado-x-context</description>
 
     <parent>
         <groupId>hn.shadowcore</groupId>
         <artifactId>mercado-x-parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <repositories>
@@ -33,6 +33,7 @@
 
     <properties>
         <java.version>17</java.version>
+        <mapstruct-version>1.5.5.Final</mapstruct-version>
     </properties>
     <packaging>jar</packaging>
     <dependencies>
@@ -52,7 +53,7 @@
         <dependency>
             <groupId>hn.shadowcore</groupId>
             <artifactId>mercado-x-library-entity</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>
@@ -84,7 +85,7 @@
         <dependency>
             <groupId>hn.shadowcore</groupId>
             <artifactId>mercado-x-redis</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
         <dependency>

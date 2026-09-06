@@ -19,6 +19,7 @@ public class KafkaProducerRecordFactory {
             producerRecord.headers().add("x-org-id", OrgIdContextHolder.getTenantId()
                     .getBytes(StandardCharsets.UTF_8));
         }
+        addCorrelationIdHeader(producerRecord);
         return producerRecord;
     }
 
@@ -30,6 +31,16 @@ public class KafkaProducerRecordFactory {
         else{
             producerRecord = new ProducerRecord<>(topic, eventPayload);
         }
+        addCorrelationIdHeader(producerRecord);
         return producerRecord;
+    }
+
+    // Independent of org-id — attached on every record (both variants above) so tracing
+    // isn't limited to tenant-scoped topics.
+    private static <T> void addCorrelationIdHeader(ProducerRecord<String, T> producerRecord) {
+        String correlationId = CorrelationIdContext.get();
+        if (correlationId != null) {
+            producerRecord.headers().add("x-correlation-id", correlationId.getBytes(StandardCharsets.UTF_8));
+        }
     }
 }

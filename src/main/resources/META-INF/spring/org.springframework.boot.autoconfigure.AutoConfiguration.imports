@@ -1,2 +1,3 @@
 hn.shadowcore.mercadox.context.security.MercadoXJwtAutoConfiguration
 hn.shadowcore.mercadox.context.config.KafkaPubSubConfig
+hn.shadowcore.mercadox.context.crypto.EncryptionAutoConfiguration
