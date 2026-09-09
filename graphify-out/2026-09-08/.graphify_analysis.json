@@ -1,0 +1,343 @@
+{
+  "communities": {
+    "0": [
+      "beforeeach",
+      "claims",
+      "jwtparser",
+      "rsaprivatekey",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_java_rsapublickey",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier_getroles",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier_jwtverifier",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier_validatetoken",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier_verify",
+      "src_main_java_hn_shadowcore_mercadox_context_security_verifiedjwt",
+      "src_main_java_hn_shadowcore_mercadox_context_security_verifiedjwt_verifiedjwt",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_buildtoken",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_init",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_shouldreturnfalseforexpiredtoken",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_shouldreturnfalseformalformedtoken",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_shouldreturnfalseforwrongissuer",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_shouldreturntrueforvalidtoken",
+      "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest_shouldverifyvalidtokenandextractclaims",
+      "suppresswarnings",
+      "test"
+    ],
+    "1": [
+      "concurrentkafkalistenercontainerfactory",
+      "consumerfactory",
+      "kafkaproperties",
+      "kafkatemplate",
+      "producerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_java_bean",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_java_configuration",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_java_defaulterrorhandler",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_java_enableconfigurationproperties",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_java_requiredargsconstructor",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_consumerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_deadletterconsumerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_deadletterlistenercontainerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_kafkaerrorhandler",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_kafkalistenercontainerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_kafkatemplate",
+      "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig_producerfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_kafka_kafkaerrorhandlercustomizer",
+      "src_main_java_hn_shadowcore_mercadox_context_kafka_kafkaerrorhandlercustomizer_java_defaulterrorhandler",
+      "src_main_java_hn_shadowcore_mercadox_context_kafka_kafkaerrorhandlercustomizer_kafkaerrorhandlercustomizer",
+      "src_main_java_hn_shadowcore_mercadox_context_kafka_kafkaerrorhandlercustomizer_kafkaerrorhandlercustomizer_customize"
+    ],
+    "2": [
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_idempotencyaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_idempotencyaspect_checkidempotency",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_idempotencyaspect_resolvekey",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_around",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_aspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_component",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_proceedingjoinpoint",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_requiredargsconstructor",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_java_slf4j",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_idempotentoperation",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_idempotentoperation_idempotentoperation",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_idempotentoperation_java_retention",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_idempotentoperation_java_target",
+      "stringredistemplate"
+    ],
+    "3": [
+      "conditionalonbean",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_filterchain",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_httpservletrequest",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_httpservletresponse",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_override",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_requiredargsconstructor",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_java_slf4j",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_tenantvalidatorfilter",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_tenantvalidatorfilter_dofilterinternal",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_tenantvalidatorfilter_resolvetenant",
+      "src_main_java_hn_shadowcore_mercadox_context_validator_anonymoustenantvalidator",
+      "src_main_java_hn_shadowcore_mercadox_context_validator_anonymoustenantvalidator_anonymoustenantvalidator",
+      "src_main_java_hn_shadowcore_mercadox_context_validator_anonymoustenantvalidator_anonymoustenantvalidator_validate"
+    ],
+    "4": [
+      "redisidempotencychecker",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_around",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_aspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_component",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_proceedingjoinpoint",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_requiredargsconstructor",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_java_slf4j",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_kafkaidempotencyaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_kafkaidempotencyaspect_checkidempotency",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_kafkaidempotencyaspect_extracteventid",
+      "src_main_java_hn_shadowcore_mercadox_context_exception_invalideventidexception",
+      "src_main_java_hn_shadowcore_mercadox_context_exception_invalideventidexception_invalideventidexception",
+      "src_main_java_hn_shadowcore_mercadox_context_exception_invalideventidexception_invalideventidexception_invalideventidexception"
+    ],
+    "5": [
+      "autoconfiguration",
+      "configurationproperties",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverificationproperties",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverificationproperties_java_resource",
+      "src_main_java_hn_shadowcore_mercadox_context_security_jwtverificationproperties_jwtverificationproperties",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_java_bean",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_java_conditionalonmissingbean",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_java_enableconfigurationproperties",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_java_rsapublickey",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_mercadoxjwtautoconfiguration",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_mercadoxjwtautoconfiguration_jwtpublickey",
+      "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_mercadoxjwtautoconfiguration_jwtverifier"
+    ],
+    "6": [
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_java_around",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_java_aspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_java_component",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_java_proceedingjoinpoint",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_kafkaorgidpropagationaspect",
+      "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaorgidpropagationaspect_kafkaorgidpropagationaspect_injectorgidfromkafkaheader",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder_clear",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder_hastenantid",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder_orgidcontextholder",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder_settenantid"
+    ],
+    "7": [
+      "mvnw",
+      "mvnw__entry",
+      "mvnw_clean",
+      "mvnw_die",
+      "mvnw_exec_maven",
+      "mvnw_hash_string",
+      "mvnw_native_path",
+      "mvnw_set_java_home",
+      "mvnw_trim",
+      "mvnw_verbose"
+    ],
+    "8": [
+      "onceperrequestfilter",
+      "profile",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_java_filterchain",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_java_httpservletrequest",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_java_httpservletresponse",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_java_override",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_java_requiredargsconstructor",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_jwtauthfilter",
+      "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_jwtauthfilter_dofilterinternal"
+    ],
+    "9": [
+      "builder",
+      "conditionalonclass",
+      "src_main_java_hn_shadowcore_mercadox_context_config_webclientconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_webclientconfig_java_bean",
+      "src_main_java_hn_shadowcore_mercadox_context_config_webclientconfig_java_configuration",
+      "src_main_java_hn_shadowcore_mercadox_context_config_webclientconfig_webclientconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_webclientconfig_webclientconfig_webclientbuilder"
+    ],
+    "10": [
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_java_bean",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_java_conditionalonmissingbean",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_java_configuration",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_java_rsapublickey",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_jwtconfig",
+      "src_main_java_hn_shadowcore_mercadox_context_config_jwtconfig_jwtconfig_jwtverifier"
+    ],
+    "11": [
+      "kafkalistener",
+      "src_main_java_hn_shadowcore_mercadox_context_listener_dlteventlistener",
+      "src_main_java_hn_shadowcore_mercadox_context_listener_dlteventlistener_dlteventlistener",
+      "src_main_java_hn_shadowcore_mercadox_context_listener_dlteventlistener_dlteventlistener_handle",
+      "src_main_java_hn_shadowcore_mercadox_context_listener_dlteventlistener_java_component",
+      "src_main_java_hn_shadowcore_mercadox_context_listener_dlteventlistener_java_slf4j"
+    ],
+    "12": [
+      "producerrecord",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_kafkaproducerrecordfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_kafkaproducerrecordfactory_kafkaproducerrecordfactory",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_kafkaproducerrecordfactory_kafkaproducerrecordfactory_buildwithorgidheader",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_kafkaproducerrecordfactory_kafkaproducerrecordfactory_buildwithoutorgidheader",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder_gettenantid"
+    ],
+    "13": [
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils",
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils_java_resource",
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils_java_rsapublickey",
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils_publickeyutils",
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils_publickeyutils_publickeyutils",
+      "src_main_java_hn_shadowcore_mercadox_context_security_publickeyutils_publickeyutils_readpublickey"
+    ],
+    "14": [
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaidempotent",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaidempotent_java_retention",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaidempotent_java_target",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaidempotent_kafkaidempotent"
+    ],
+    "15": [
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaorgidpropagated",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaorgidpropagated_java_retention",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaorgidpropagated_java_target",
+      "src_main_java_hn_shadowcore_mercadox_context_utils_annotations_kafkaorgidpropagated_kafkaorgidpropagated"
+    ],
+    "16": [
+      "pkg_mercado_x_context"
+    ]
+  },
+  "cohesion": {
+    "0": 0.16304347826086957,
+    "1": 0.1857707509881423,
+    "2": 0.23809523809523808,
+    "3": 0.25274725274725274,
+    "4": 0.23076923076923078,
+    "5": 0.28205128205128205,
+    "6": 0.23076923076923078,
+    "7": 0.3333333333333333,
+    "8": 0.3333333333333333,
+    "9": 0.42857142857142855,
+    "10": 0.47619047619047616,
+    "11": 0.5333333333333333,
+    "12": 0.4666666666666667,
+    "13": 0.4666666666666667,
+    "14": 0.8333333333333334,
+    "15": 0.8333333333333334,
+    "16": 1.0
+  },
+  "gods": [
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_security_jwtverifier_jwtverifier",
+      "label": "JwtVerifier",
+      "degree": 14
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_config_kafkapubsubconfig_kafkapubsubconfig",
+      "label": "KafkaPubSubConfig",
+      "degree": 12
+    },
+    {
+      "id": "src_test_java_hn_mercadoxcontext_utils_jwtverifiertest_jwtverifiertest",
+      "label": "JwtVerifierTest",
+      "degree": 10
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_aspect_idempotencyaspect_idempotencyaspect",
+      "label": "IdempotencyAspect",
+      "degree": 8
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_aspect_kafkaidempotencyaspect_kafkaidempotencyaspect",
+      "label": "KafkaIdempotencyAspect",
+      "degree": 8
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_filter_tenantvalidatorfilter_tenantvalidatorfilter",
+      "label": "TenantValidatorFilter",
+      "degree": 8
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_filter_jwtauthfilter_jwtauthfilter",
+      "label": "JwtAuthFilter",
+      "degree": 6
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_utils_orgidcontextholder_orgidcontextholder",
+      "label": "OrgIdContextHolder",
+      "degree": 6
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_security_mercadoxjwtautoconfiguration_mercadoxjwtautoconfiguration",
+      "label": "MercadoXJwtAutoConfiguration",
+      "degree": 5
+    },
+    {
+      "id": "src_main_java_hn_shadowcore_mercadox_context_security_verifiedjwt_verifiedjwt",
+      "label": "VerifiedJwt",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "JwtAuthFilter",
+      "target": "JwtVerifier",
+      "source_files": [
+        "src/main/java/hn/shadowcore/mercadox/context/filter/JwtAuthFilter.java",
+        "src/main/java/hn/shadowcore/mercadox/context/security/JwtVerifier.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "bridges separate communities"
+    },
+    {
+      "source": "TenantValidatorFilter",
+      "target": "AnonymousTenantValidator",
+      "source_files": [
+        "src/main/java/hn/shadowcore/mercadox/context/filter/TenantValidatorFilter.java",
+        "src/main/java/hn/shadowcore/mercadox/context/validator/AnonymousTenantValidator.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "JwtVerifierTest",
+      "target": "JwtVerifier",
+      "source_files": [
+        "src/test/java/hn/mercadoxcontext/utils/JwtVerifierTest.java",
+        "src/main/java/hn/shadowcore/mercadox/context/security/JwtVerifier.java"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `JwtVerifier` connect `JwtVerifier` to `JwtAuthFilter.java`, `JwtConfig.java`, `MercadoXJwtAutoConfiguration.java`?",
+      "why": "High betweenness centrality (0.148) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `VerifiedJwt` connect `JwtVerifier` to `JwtAuthFilter.java`, `TenantValidatorFilter.java`?",
+      "why": "High betweenness centrality (0.075) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `OrgIdContextHolder` connect `KafkaOrgIdPropagationAspect.java` to `ProducerRecord`?",
+      "why": "High betweenness centrality (0.045) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `mercado-x-context` to the rest of the system?",
+      "why": "1 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}

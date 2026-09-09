@@ -1,16 +1,16 @@
-# Graph Report - mercado-x-context  (2026-09-09)
+# Graph Report - mercado-x-context  (2026-09-08)
 
 ## Corpus Check
-- 39 files · ~5,478 words
+- 39 files · ~5,426 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 276 nodes · 473 edges · 20 communities (18 shown, 2 thin omitted)
+- 275 nodes · 471 edges · 20 communities (18 shown, 2 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d87424f0`
+- Built from commit: `5548abd6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -104,8 +104,8 @@ Cohesion: 0.43
 Nodes (5): Builder, ConditionalOnClass, Bean, Configuration, WebClientConfig
 
 ### Community 10 - "JwtConfig.java"
-Cohesion: 0.19
-Nodes (9): MasterKeyService, SecretKey, EnvVarMasterKeyService, Override, SuppressWarnings, ConfigurationProperties, MasterKeyProperties, EnvVarMasterKeyServiceTest (+1 more)
+Cohesion: 0.20
+Nodes (8): MasterKeyService, SecretKey, EnvVarMasterKeyService, Override, ConfigurationProperties, MasterKeyProperties, EnvVarMasterKeyServiceTest, Test
 
 ### Community 11 - "DltEventListener.java"
 Cohesion: 0.53
@@ -144,9 +144,9 @@ Nodes (3): Retention, Target, KafkaCorrelationIdPropagated
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `JwtVerifier` connect `JwtVerifier` to `MercadoXJwtAutoConfiguration.java`?**
-  _High betweenness centrality (0.098) - this node is a cross-community bridge._
+  _High betweenness centrality (0.099) - this node is a cross-community bridge._
 - **Why does `TenantValidatorFilter` connect `TenantValidatorFilter.java` to `JwtVerifier`?**
-  _High betweenness centrality (0.071) - this node is a cross-community bridge._
+  _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **Why does `VerifiedJwt` connect `JwtVerifier` to `TenantValidatorFilter.java`?**
   _High betweenness centrality (0.047) - this node is a cross-community bridge._
 - **What connects `mercado-x-context`, `graphify`, `Overview` to the rest of the system?**
