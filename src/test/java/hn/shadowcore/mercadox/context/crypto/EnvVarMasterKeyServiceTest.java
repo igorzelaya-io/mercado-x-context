@@ -13,6 +13,29 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 class EnvVarMasterKeyServiceTest {
 
     @Test
+    void constructor_withoutAConfiguredKey_failsWithConfigurationMessage() {
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties(null)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("encryption.master-key.value");
+    }
+
+    @Test
+    void constructor_withMalformedBase64_failsWithConfigurationMessage() {
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties("not-base64!")))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("valid Base64");
+    }
+
+    @Test
+    void constructor_withNonAes256Key_failsWithConfigurationMessage() {
+        String aes128Key = Base64.getEncoder().encodeToString(new byte[16]);
+
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties(aes128Key)))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("exactly 32 bytes");
+    }
+
+    @Test
     void wrapThenUnwrap_returnsOriginalDataKeyBytes() throws Exception {
         EnvVarMasterKeyService service = new EnvVarMasterKeyService(randomKeyProperties());
         byte[] dek = randomAesKeyBytes();

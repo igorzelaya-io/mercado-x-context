@@ -1,11 +1,11 @@
 # Graph Report - mercado-x-context  (2026-09-08)
 
 ## Corpus Check
-- 39 files · ~5,426 words
+- 39 files · ~5,410 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 275 nodes · 471 edges · 20 communities (18 shown, 2 thin omitted)
+- 274 nodes · 469 edges · 20 communities (18 shown, 2 thin omitted)
 - Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 15 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
@@ -128,7 +128,7 @@ Cohesion: 0.83
 Nodes (3): Retention, Target, KafkaOrgIdPropagated
 
 ### Community 17 - "EncryptionAutoConfigurationTest.java"
-Cohesion: 0.48
+Cohesion: 0.53
 Nodes (3): ApplicationContextRunner, EncryptionAutoConfigurationTest, Test
 
 ### Community 18 - "KafkaCorrelationIdPropagated.java"
@@ -144,7 +144,7 @@ Nodes (3): Retention, Target, KafkaCorrelationIdPropagated
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `JwtVerifier` connect `JwtVerifier` to `MercadoXJwtAutoConfiguration.java`?**
-  _High betweenness centrality (0.099) - this node is a cross-community bridge._
+  _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **Why does `TenantValidatorFilter` connect `TenantValidatorFilter.java` to `JwtVerifier`?**
   _High betweenness centrality (0.072) - this node is a cross-community bridge._
 - **Why does `VerifiedJwt` connect `JwtVerifier` to `TenantValidatorFilter.java`?**

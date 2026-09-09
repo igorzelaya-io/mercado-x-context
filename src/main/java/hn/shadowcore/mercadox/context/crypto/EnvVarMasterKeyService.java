@@ -20,11 +20,33 @@ import java.util.Base64;
 public class EnvVarMasterKeyService implements MasterKeyService {
 
     private static final String WRAP_ALGORITHM = "AESWrap";
+    private static final int AES_256_KEY_BYTES = 32;
 
     private final SecretKey masterKey;
 
     public EnvVarMasterKeyService(MasterKeyProperties properties) {
-        byte[] raw = Base64.getDecoder().decode(properties.value());
+        if (properties == null || properties.value() == null || properties.value().isBlank()) {
+            throw new IllegalArgumentException(
+                    "encryption.master-key.value must contain a Base64-encoded AES-256 key"
+            );
+        }
+
+        final byte[] raw;
+        try {
+            raw = Base64.getDecoder().decode(properties.value());
+        } catch (IllegalArgumentException exception) {
+            throw new IllegalArgumentException(
+                    "encryption.master-key.value must be valid Base64",
+                    exception
+            );
+        }
+
+        if (raw.length != AES_256_KEY_BYTES) {
+            throw new IllegalArgumentException(
+                    "encryption.master-key.value must decode to exactly 32 bytes for AES-256"
+            );
+        }
+
         this.masterKey = new SecretKeySpec(raw, "AES");
     }
 

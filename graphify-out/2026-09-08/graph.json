@@ -2599,17 +2599,6 @@
       "norm_label": ".configuredmasterkey_createsmasterkeyservice()"
     },
     {
-      "label": ".blankMasterKey_failsWithConfigurationMessage()",
-      "file_type": "code",
-      "source_file": "src/test/java/hn/shadowcore/mercadox/context/crypto/EncryptionAutoConfigurationTest.java",
-      "source_location": "L39",
-      "_origin": "ast",
-      "id": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_encryptionautoconfigurationtest_blankmasterkey_failswithconfigurationmessage",
-      "community": 17,
-      "community_name": "EncryptionAutoConfigurationTest.java",
-      "norm_label": ".blankmasterkey_failswithconfigurationmessage()"
-    },
-    {
       "label": "EnvVarMasterKeyServiceTest.java",
       "file_type": "code",
       "source_file": "src/test/java/hn/shadowcore/mercadox/context/crypto/EnvVarMasterKeyServiceTest.java",
@@ -7849,17 +7838,6 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "src/test/java/hn/shadowcore/mercadox/context/crypto/EncryptionAutoConfigurationTest.java",
-      "source_location": "L39",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_encryptionautoconfigurationtest",
-      "target": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_encryptionautoconfigurationtest_blankmasterkey_failswithconfigurationmessage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "src/test/java/hn/shadowcore/mercadox/context/crypto/EncryptionAutoConfigurationTest.java",
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
@@ -7887,18 +7865,6 @@
       "context": "attribute",
       "_origin": "ast",
       "source": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_encryptionautoconfigurationtest_missingmasterkey_doesnotcreatemasterkeyservice",
-      "target": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_java_test",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "confidence": "EXTRACTED",
-      "source_file": "src/test/java/hn/shadowcore/mercadox/context/crypto/EncryptionAutoConfigurationTest.java",
-      "source_location": "L39",
-      "weight": 1.0,
-      "context": "attribute",
-      "_origin": "ast",
-      "source": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_encryptionautoconfigurationtest_blankmasterkey_failswithconfigurationmessage",
       "target": "src_test_java_hn_shadowcore_mercadox_context_crypto_encryptionautoconfigurationtest_java_test",
       "confidence_score": 1.0
     },
