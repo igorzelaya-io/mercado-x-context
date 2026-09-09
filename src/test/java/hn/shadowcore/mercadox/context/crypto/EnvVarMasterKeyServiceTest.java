@@ -14,14 +14,18 @@ class EnvVarMasterKeyServiceTest {
 
     @Test
     void constructor_withoutAConfiguredKey_failsWithConfigurationMessage() {
-        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties(null)))
+        MasterKeyProperties properties = new MasterKeyProperties(null);
+
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(properties))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("encryption.master-key.value");
     }
 
     @Test
     void constructor_withMalformedBase64_failsWithConfigurationMessage() {
-        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties("not-base64!")))
+        MasterKeyProperties properties = new MasterKeyProperties("not-base64!");
+
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(properties))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("valid Base64");
     }
@@ -29,8 +33,9 @@ class EnvVarMasterKeyServiceTest {
     @Test
     void constructor_withNonAes256Key_failsWithConfigurationMessage() {
         String aes128Key = Base64.getEncoder().encodeToString(new byte[16]);
+        MasterKeyProperties properties = new MasterKeyProperties(aes128Key);
 
-        assertThatThrownBy(() -> new EnvVarMasterKeyService(new MasterKeyProperties(aes128Key)))
+        assertThatThrownBy(() -> new EnvVarMasterKeyService(properties))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("exactly 32 bytes");
     }

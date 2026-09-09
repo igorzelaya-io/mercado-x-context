@@ -19,7 +19,7 @@ import java.util.Base64;
  */
 public class EnvVarMasterKeyService implements MasterKeyService {
 
-    private static final String WRAP_ALGORITHM = "AESWrap";
+    private static final String WRAP_ALGORITHM = "AES/KW/NoPadding";
     private static final int AES_256_KEY_BYTES = 32;
 
     private final SecretKey masterKey;
@@ -51,6 +51,9 @@ public class EnvVarMasterKeyService implements MasterKeyService {
     }
 
     @Override
+    // AES-KW is the authenticated key-wrapping mode defined by NIST SP 800-38F;
+    // NoPadding is part of that standard transformation, not an ECB data cipher choice.
+    @SuppressWarnings("java:S5542")
     public byte[] wrap(byte[] dataKey) {
         try {
             Cipher cipher = Cipher.getInstance(WRAP_ALGORITHM);
@@ -62,6 +65,8 @@ public class EnvVarMasterKeyService implements MasterKeyService {
     }
 
     @Override
+    // See wrap(byte[]): the same NIST AES-KW transformation is required for interoperability.
+    @SuppressWarnings("java:S5542")
     public byte[] unwrap(byte[] wrappedDataKey) {
         try {
             Cipher cipher = Cipher.getInstance(WRAP_ALGORITHM);

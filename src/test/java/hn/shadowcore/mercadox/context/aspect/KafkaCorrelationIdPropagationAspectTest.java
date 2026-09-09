@@ -34,10 +34,10 @@ class KafkaCorrelationIdPropagationAspectTest {
     void injectCorrelationIdFromKafkaHeader_setsContextFromHeaderDuringProceedThenClears() throws Throwable {
         RecordHeaders headers = new RecordHeaders();
         headers.add(new RecordHeader("x-correlation-id", "corr-abc".getBytes(StandardCharsets.UTF_8)));
-        ConsumerRecord<String, Object> record =
+        ConsumerRecord<String, Object> consumerRecord =
                 new ConsumerRecord<>("topic", 0, 0L, 0L, null, null, 0, 0, "key", "value", headers, null);
 
-        when(joinPoint.getArgs()).thenReturn(new Object[]{record});
+        when(joinPoint.getArgs()).thenReturn(new Object[]{consumerRecord});
         AtomicReference<String> seenDuringProceed = new AtomicReference<>();
         when(joinPoint.proceed()).thenAnswer(invocation -> {
             seenDuringProceed.set(CorrelationIdContext.get());
@@ -52,10 +52,10 @@ class KafkaCorrelationIdPropagationAspectTest {
 
     @Test
     void injectCorrelationIdFromKafkaHeader_whenHeaderAbsent_proceedsWithoutSettingContext() throws Throwable {
-        ConsumerRecord<String, Object> record =
+        ConsumerRecord<String, Object> consumerRecord =
                 new ConsumerRecord<>("topic", 0, 0L, "key", "value");
 
-        when(joinPoint.getArgs()).thenReturn(new Object[]{record});
+        when(joinPoint.getArgs()).thenReturn(new Object[]{consumerRecord});
         AtomicReference<String> seenDuringProceed = new AtomicReference<>();
         when(joinPoint.proceed()).thenAnswer(invocation -> {
             seenDuringProceed.set(CorrelationIdContext.get());
@@ -71,10 +71,10 @@ class KafkaCorrelationIdPropagationAspectTest {
     void injectCorrelationIdFromKafkaHeader_clearsContextEvenWhenProceedThrows() throws Throwable {
         RecordHeaders headers = new RecordHeaders();
         headers.add(new RecordHeader("x-correlation-id", "corr-abc".getBytes(StandardCharsets.UTF_8)));
-        ConsumerRecord<String, Object> record =
+        ConsumerRecord<String, Object> consumerRecord =
                 new ConsumerRecord<>("topic", 0, 0L, 0L, null, null, 0, 0, "key", "value", headers, null);
 
-        when(joinPoint.getArgs()).thenReturn(new Object[]{record});
+        when(joinPoint.getArgs()).thenReturn(new Object[]{consumerRecord});
         when(joinPoint.proceed()).thenThrow(new RuntimeException("boom"));
 
         try {

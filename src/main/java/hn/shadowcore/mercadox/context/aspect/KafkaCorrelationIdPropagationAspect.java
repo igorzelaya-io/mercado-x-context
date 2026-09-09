@@ -19,8 +19,8 @@ public class KafkaCorrelationIdPropagationAspect {
         try {
             Object[] args = joinPoint.getArgs();
             for (Object arg : args) {
-                if (arg instanceof ConsumerRecord<?, ?> record) {
-                    Header header = record.headers().lastHeader("x-correlation-id");
+                if (arg instanceof ConsumerRecord<?, ?> consumerRecord) {
+                    Header header = consumerRecord.headers().lastHeader("x-correlation-id");
                     if (header != null) {
                         String correlationId = new String(header.value(), StandardCharsets.UTF_8);
                         CorrelationIdContext.set(correlationId);
