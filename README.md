@@ -77,7 +77,7 @@ Both key their Redis entry off an application-supplied ID (`IdempotentRequest.ge
 
 ## Kafka Pub/Sub Configuration
 
-`KafkaPubSubConfig` provides the producer/consumer factories every service uses: values are serialized as JSON with type-info headers (`JsonSerializer`/`JsonDeserializer` with `ADD_TYPE_INFO_HEADERS`), and the consumer's `JsonDeserializer.TRUSTED_PACKAGES` is restricted to `hn.shadowcore.mercadox.*` so a crafted `__TypeId__` header can't force deserialization of an arbitrary class.
+`KafkaPubSubConfig` provides the producer/consumer factories every service uses: values are serialized as JSON with type-info headers (`JsonSerializer`/`JsonDeserializer` with `ADD_TYPE_INFO_HEADERS`), and the consumer's `JsonDeserializer.TRUSTED_PACKAGES` is restricted to `hn.alturaforge.mercadox.*` so a crafted `__TypeId__` header can't force deserialization of an arbitrary class.
 
 Note: `mercado-x-library-entity` also declares Avro schemas (`src/main/avro/*.avsc`) for schema-registry compatibility tracking, but the wire format actually produced by this config is JSON, not Avro-encoded — the generated Avro classes aren't referenced by any producer/consumer code today.
 

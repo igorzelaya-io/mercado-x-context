@@ -1,7 +1,7 @@
 package hn.mercadoxcontext.utils;
 
-import hn.shadowcore.mercadox.context.security.JwtVerifier;
-import hn.shadowcore.mercadox.context.security.VerifiedJwt;
+import hn.alturaforge.mercadox.context.security.JwtVerifier;
+import hn.alturaforge.mercadox.context.security.VerifiedJwt;
 import io.jsonwebtoken.Jwts;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +19,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class JwtVerifierTest {
 
     private static final String ISSUER = "mercadox-oauth";
+    private static final String AUDIENCE = "mercadox-api";
 
     private JwtVerifier jwtVerifier;
     private RSAPrivateKey privateKey;
@@ -65,6 +66,7 @@ class JwtVerifierTest {
         String token = Jwts.builder()
                 .subject("user@mercadox.com")
                 .issuer(ISSUER)
+                .audience().add(AUDIENCE).and()
                 .claim("orgId", UUID.randomUUID().toString())
                 .claim("roles", List.of())
                 .issuedAt(past)
@@ -80,6 +82,38 @@ class JwtVerifierTest {
         String token = Jwts.builder()
                 .subject("user@mercadox.com")
                 .issuer("rogue-issuer")
+                .audience().add(AUDIENCE).and()
+                .claim("orgId", UUID.randomUUID().toString())
+                .claim("roles", List.of())
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 60_000))
+                .signWith(privateKey)
+                .compact();
+
+        assertThat(jwtVerifier.validateToken(token)).isFalse();
+    }
+
+    @Test
+    void shouldReturnFalseForWrongAudience() {
+        String token = Jwts.builder()
+                .subject("user@mercadox.com")
+                .issuer(ISSUER)
+                .audience().add("some-other-api").and()
+                .claim("orgId", UUID.randomUUID().toString())
+                .claim("roles", List.of())
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + 60_000))
+                .signWith(privateKey)
+                .compact();
+
+        assertThat(jwtVerifier.validateToken(token)).isFalse();
+    }
+
+    @Test
+    void shouldReturnFalseForMissingAudience() {
+        String token = Jwts.builder()
+                .subject("user@mercadox.com")
+                .issuer(ISSUER)
                 .claim("orgId", UUID.randomUUID().toString())
                 .claim("roles", List.of())
                 .issuedAt(new Date())
@@ -94,6 +128,7 @@ class JwtVerifierTest {
         return Jwts.builder()
                 .subject(email)
                 .issuer(ISSUER)
+                .audience().add(AUDIENCE).and()
                 .claim("orgId", orgId)
                 .claim("roles", roles)
                 .issuedAt(new Date())
